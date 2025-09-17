@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import {rateLimit} from 'express-rate-limit'
 import { Redis } from '@upstash/redis';
 import { swaggerSpec, swaggerUi } from './swagger.js';
+import cors from 'cors'
 
 dotenv.config()
 
@@ -29,6 +30,10 @@ const limiter = rateLimit({
 
 app.use(express.urlencoded())
 app.use(express.json())
+
+app.use(cors({
+    origin: '*'
+}))
 
 app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
