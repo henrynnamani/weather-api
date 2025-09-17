@@ -11,7 +11,7 @@ const swaggerOptions = {
       },
       servers: [
         {
-          url: 'http://localhost:3000',
+          url: 'https://weather-api-m1ys.onrender.com',
         },
       ],
     },
